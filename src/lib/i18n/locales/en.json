@@ -13,5 +13,103 @@
       "en": "English",
       "ar": "Arabic"
     }
+  },
+  "home": {
+    "hero": {
+      "title": "Creative Digital Solutions",
+      "subtitle": "We build innovative products and experiences that power meaningful connections between brands and people",
+      "cta": "Get Started",
+      "headline": {
+        "line1": "SHAPING THE FUTURE OF IRAQ",
+        "line2": "WITH THE POWER OF AI",
+        "line3": "AND DIGITAL SOLUTIONS"
+      },
+      "contact": {
+        "office": "OFFICE:",
+        "mobile": "MOBILE:",
+        "mobileNumber": "+964 780 280 6666",
+        "email": "EMAIL:",
+        "emailAddress": "HELLO@MOONWHALE.COM",
+        "address": "ADDRESS:",
+        "addressIraq": "BAGHDAD - IRAQ",
+        "addressUs1": "131 Continental Dr, Suite 305",
+        "addressUs2": "DELAWARE - UNITED STATES"
+      }
+    },
+    "services": {
+      "title": "Our Services",
+      "description": "We offer a comprehensive range of digital services to help your business grow",
+      "web": {
+        "title": "Web Development",
+        "description": "Creating responsive, fast, and secure websites tailored to your needs"
+      },
+      "mobile": {
+        "title": "Mobile Apps",
+        "description": "Native and cross-platform mobile solutions for iOS and Android"
+      },
+      "design": {
+        "title": "UI/UX Design",
+        "description": "User-centered design that enhances user experience and engagement"
+      },
+      "viewAll": "View All Services"
+    },
+    "about": {
+      "title": "Who We Are",
+      "description": "MoonWhale is a creative digital agency focused on delivering exceptional results for our clients. With expertise spanning web, mobile, and design, we turn ideas into impactful digital experiences.",
+      "years": "Years of Experience",
+      "clients": "Satisfied Clients",
+      "projects": "Completed Projects",
+      "learnMore": "Learn More About Us",
+      "label": "WHO IS MOONWHALE?",
+      "headline": {
+        "part1": "MOONWHALE IS IRAQ'S FIRST AI‑NATIVE TECHNOLOGY STUDIO ON A MISSION TO REDEFINE HOW PEOPLE WORK, LEARN, AND LIVE. WE MERGE DEEP‑SEA EXPERTISE",
+        "part2": "WITH MOON‑SHOT AMBITION",
+        "part3": "TO DESIGN AND ENGINEER AI‑POWERED PRODUCTS THAT MAKE MODERN LIFE SMARTER, FASTER, AND MORE HUMAN."
+      },
+      "subline": "We turn sparks into software—combining intelligent automation, beautiful interfaces, and immersive learning to solve real‑world problems for individuals, startups, and enterprises alike.",
+      "mission": {
+        "label": "MISSION",
+        "text": "Create digital experiences that don't just keep up with the world but push it forward—making transformative technology accessible, impactful, and intuitively human."
+      },
+      "vision": {
+        "label": "VISION",
+        "text": "A future where AI is woven into everyday life, elevating Iraq—and the globe—through engaging products and services that reshape how we work, learn, and connect."
+      }
+    },
+    "services": {
+      "label": "WHAT WE DO",
+      "headline": {
+        "part1": "WE FUSE WHALE-DEEP EXPERTISE IN AI, DESIGN, AND ENGINEERING TO TURN RAW IDEAS INTO SCALABLE DIGITAL PRODUCTS.",
+        "part2": "FROM LIGHTNING-FAST NO-CODE LAUNCH PAGES TO ENTERPRISE-GRADE PLATFORMS AND BESPOKE AI MODELS, WE CRAFT EXPERIENCES THAT CAPTIVATE, CONVERT, AND KEEP EVOLVING.",
+        "part3": "BORN IN MESOPOTAMIA, OUR WORK CARRIES THE FIRE OF IRAQ'S INNOVATION TO CLIENTS WHO DEMAND RESULTS BEYOND THE ORDINARY."
+      }
+    },
+    "work": {
+      "title": "Our Work",
+      "description": "Explore our latest projects and see how we've helped businesses achieve their goals",
+      "viewAll": "View All Projects"
+    },
+    "testimonials": {
+      "title": "What Our Clients Say",
+      "testimonial1": {
+        "text": "MoonWhale transformed our digital presence with an innovative approach that perfectly captured our brand vision while delivering exceptional results.",
+        "author": "Sarah Johnson",
+        "position": "CEO, TechVision"
+      },
+      "testimonial2": {
+        "text": "Working with MoonWhale was a game-changer for our business. Their team's expertise and dedication helped us reach new heights.",
+        "author": "Michael Chen",
+        "position": "Marketing Director, Innovate Inc."
+      }
+    },
+    "contact": {
+      "title": "Ready to Start Your Project?",
+      "description": "Get in touch with us today to discuss your ideas and let's create something amazing together.",
+      "button": "Contact Us"
+    },
+    "whaleMessage": {
+      "line1": "From the Deep Blue to Deep Space",
+      "line2": "Building Brands that Orbit."
+    }
   }
 } 

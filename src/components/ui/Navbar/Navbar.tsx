@@ -30,7 +30,7 @@ const Navbar: FC = () => {
       <nav>
         <Container className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href={`/${locale}`} aria-label="Home" className="ms-0">
+          <Link href="/" aria-label="Home" className="ms-0">
             <Image
               src="/MW_logo_web.svg"
               alt="Moonwhale Logo"
@@ -45,7 +45,7 @@ const Navbar: FC = () => {
               {navItems.map(({ labelKey, path }) => (
                 <li key={labelKey}>
                   <Link
-                    href={`/${locale}/${path}`}
+                    href={`/${path}`}
                     className={`text-white font-medium nav-hover-line ${locale === 'ar' ? 'font-arabic' : 'font-sans'}`}
                   >
                     {t(labelKey)}
@@ -73,7 +73,7 @@ const Navbar: FC = () => {
             {navItems.map(({ labelKey, path }) => (
               <Link
                 key={labelKey}
-                href={`/${locale}/${path}`}
+                href={`/${path}`}
                 className={`block px-3 py-2 rounded-md text-base font-medium text-white nav-hover-line ${locale === 'ar' ? 'font-arabic' : 'font-sans'}`}
                 onClick={toggle}
               >
