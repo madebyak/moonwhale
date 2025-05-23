@@ -1,0 +1,17 @@
+{
+  "common": {
+    "navbar": {
+      "about": "ABOUT",
+      "services": "SERVICES",
+      "projects": "PROJECTS",
+      "products": "PRODUCTS",
+      "lab": "LAB",
+      "contact": "CONTACT",
+      "home": "HOME"
+    },
+    "locale": {
+      "en": "English",
+      "ar": "Arabic"
+    }
+  }
+} 
