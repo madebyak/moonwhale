@@ -93,6 +93,8 @@ const PartnersSection: React.FC = () => {
 
   // easeInOutCirc timing for consistent animations
   const easeInOutCirc = [0.785, 0.135, 0.15, 0.86];
+  // easeInOutQuint for hover effect
+  const easeInOutQuint = [0.83, 0, 0.17, 1];
 
   return (
     <section className="py-16 bg-black text-white" ref={sectionRef}>
@@ -111,33 +113,36 @@ const PartnersSection: React.FC = () => {
             {t('label')}
           </motion.div>
           
-          {/* Main Headline */}
-          <motion.div 
-            className={`${isRTL ? 'font-arabic' : 'font-sans'} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase leading-loose`}
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{
-              duration: 0.8,
-              delay: 0.2,
-              ease: easeInOutCirc
-            }}
-          >
-            {t('headline')}
-          </motion.div>
+          {/* Headline and Subline Row */}
+          <div className={`flex flex-col lg:flex-row ${isRTL ? 'lg:flex-row-reverse' : ''} gap-2 lg:gap-16 items-start`}>
+            {/* Main Headline - Left side (or right for RTL) */}
+            <motion.div 
+              className={`${isRTL ? 'font-arabic' : 'font-sans'} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase leading-loose flex-1`}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.2,
+                ease: easeInOutCirc
+              }}
+            >
+              {t('headline')}
+            </motion.div>
 
-          {/* Subline */}
-          <motion.div 
-            className={`${isRTL ? 'font-arabic text-right' : 'font-mono text-left'} text-lg md:text-xl leading-relaxed max-w-4xl`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{
-              duration: 0.6,
-              delay: 0.4,
-              ease: easeInOutCirc
-            }}
-          >
-            {t('subline')}
-          </motion.div>
+            {/* Subline - Right side (or left for RTL) */}
+            <motion.div 
+              className={`${isRTL ? 'font-arabic text-right' : 'font-mono text-left'} text-lg md:text-xl leading-relaxed max-w-md lg:max-w-sm xl:max-w-md flex-shrink-0`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{
+                duration: 0.6,
+                delay: 0.2,
+                ease: easeInOutCirc
+              }}
+            >
+              {t('subline')}
+            </motion.div>
+          </div>
 
           {/* Partners Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12 mt-16">
@@ -163,9 +168,16 @@ const PartnersSection: React.FC = () => {
                   <div className="w-full h-px bg-white"></div>
                 </div>
 
-                {/* Logo Container */}
-                <div className="w-full h-20 flex items-center justify-center bg-transparent border border-gray-800 rounded-lg p-4 hover:border-gray-600 transition-colors duration-300">
-                  <div className="relative w-full h-full flex items-center justify-center">
+                {/* Logo Container - Removed border, smaller size, added hover scale */}
+                <div className="w-full h-16 flex items-center justify-center bg-transparent p-4">
+                  <motion.div 
+                    className="relative w-full h-full flex items-center justify-center"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{
+                      duration: 0.3,
+                      ease: easeInOutQuint
+                    }}
+                  >
                     <Image
                       src={partner.logo}
                       alt={partner.altText}
@@ -173,7 +185,7 @@ const PartnersSection: React.FC = () => {
                       className="object-contain filter brightness-0 invert"
                       sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
                     />
-                  </div>
+                  </motion.div>
                 </div>
               </motion.div>
             ))}
