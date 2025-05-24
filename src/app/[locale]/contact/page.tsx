@@ -33,7 +33,7 @@ export default async function ContactPage({ params }: PageProps) {
             <p><strong>Hours:</strong> Monday-Friday, 9AM-6PM PST</p>
           </div>
           
-          <div>
+    <div>
             <h3 className="text-xl font-medium mb-3">Follow Us</h3>
             <div className="flex space-x-4">
               <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">

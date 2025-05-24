@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 195.75 189">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #7b00ff;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: #5fff00;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <path class="cls-2" d="M60.75,168.75h-13.5c-26.05,0-47.25-21.2-47.25-47.25v-13.5h13.5v13.5c0,18.61,15.14,33.75,33.75,33.75h13.5v13.5Z"/>
+      <polygon class="cls-1" points="176.65 155.25 159.23 172.66 168.75 182.25 195.75 155.25 168.75 128.25 159.16 137.77 176.65 155.25"/>
+      <polygon class="cls-3" points="135 189 122.07 185.1 141.75 121.5 154.68 125.4 135 189"/>
+      <polygon class="cls-1" points="100.1 155.25 117.52 137.84 108 128.25 81 155.25 108 182.25 117.59 172.73 100.1 155.25"/>
+      <path class="cls-2" d="M189,108h-13.5v-47.25c0-18.64-15.11-33.75-33.75-33.75h-27v-13.5h27c26.1,0,47.25,21.15,47.25,47.25v47.25Z"/>
+      <circle class="cls-1" cx="6.75" cy="6.75" r="6.75"/>
+      <rect class="cls-2" x="27" width="67.5" height="13.5"/>
+      <circle class="cls-2" cx="6.75" cy="60.75" r="6.75"/>
+      <rect class="cls-2" x="27" y="54" width="67.5" height="13.5"/>
+      <rect class="cls-1" y="81" width="67.5" height="13.5"/>
+      <circle class="cls-2" cx="87.75" cy="33.75" r="6.75"/>
+      <rect class="cls-1" y="27" width="67.5" height="13.5"/>
+      <circle class="cls-1" cx="87.75" cy="87.75" r="6.75"/>
+    </g>
+  </g>
+</svg>

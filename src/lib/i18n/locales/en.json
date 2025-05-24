@@ -84,6 +84,55 @@
         "part3": "BORN IN MESOPOTAMIA, OUR WORK CARRIES THE FIRE OF IRAQ'S INNOVATION TO CLIENTS WHO DEMAND RESULTS BEYOND THE ORDINARY."
       }
     },
+    "servicesGrid": {
+      "services": {
+        "ai": {
+          "headline": "AI SOLUTIONS",
+          "subline": "We plug practical AI into everyday workflows—turning slow, manual tasks into smart, self-optimising systems.",
+          "points": {
+            "strategy": "AI Strategy & Road-mapping",
+            "governance": "Risk & Governance Audits",
+            "models": "Custom ML / NLP Models",
+            "automation": "RPA & Computer-Vision Automation",
+            "finetuning": "Generative-AI Fine-Tuning"
+          }
+        },
+        "development": {
+          "headline": "SOFTWARE DEVELOPMENT",
+          "subline": "Web, mobile, and cloud platforms engineered for speed, security, and infinite scale.",
+          "points": {
+            "websites": "Lightning-fast Websites & Landing Pages",
+            "saas": "SaaS & Progressive Web Apps",
+            "mobile": "iOS, Android & Cross-Platform Mobile",
+            "integrations": "API & Third-Party Integrations",
+            "devops": "DevOps, Cloud Hosting & CI/CD",
+            "performance": "Performance, SEO & Ongoing QA"
+          }
+        },
+        "uxui": {
+          "headline": "UI/UX DESIGN",
+          "subline": "Experiences that feel natural, look stunning, and keep users coming back.",
+          "points": {
+            "research": "UX Research & User Testing",
+            "wireframes": "Wireframes & Interactive Prototypes",
+            "systems": "High-Fidelity UI Systems",
+            "motion": "Motion & Micro-Interaction Design",
+            "handoff": "Pixel-Perfect Design-to-Dev Handoff"
+          }
+        },
+        "branding": {
+          "headline": "BRANDING",
+          "subline": "Distinctive, scalable identities that turn heads and build trust—born in Mesopotamia, ready for the world.",
+          "points": {
+            "discovery": "Brand Discovery & Positioning",
+            "naming": "Naming, Voice & Messaging",
+            "identity": "Logo & Visual Identity Systems",
+            "guides": "Style Guides & Asset Libraries",
+            "launch": "Launch Collateral & Roll-out Support"
+          }
+        }
+      }
+    },
     "work": {
       "title": "Our Work",
       "description": "Explore our latest projects and see how we've helped businesses achieve their goals",

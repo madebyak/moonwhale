@@ -3,6 +3,7 @@ import React from 'react';
 import Container from '@/components/layout/Container';
 import { useParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+import AnimatedText from '@/components/ui/AnimatedText';
 
 const ServicesSection: React.FC = () => {
   const { locale } = useParams() as { locale: string };
@@ -23,9 +24,32 @@ const ServicesSection: React.FC = () => {
           {/* Headlines on the right */}
           <div className="lg:col-span-9">
             <div className={`${isRTL ? 'font-arabic' : 'font-sans'} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase leading-loose space-y-6`}>
-              <div>{t('headline.part1')}</div>
-              <div>{t('headline.part2')}</div>
-              <div>{t('headline.part3')}</div>
+              {/* First headline with exaggerated words */}
+              <AnimatedText
+                text={t('headline.part1')}
+                className=""
+                isRTL={isRTL}
+                staggerDelay={0.08}
+                exaggeratedIndices={[2, 7, 12]} // Words like "EXPERTISE", "TURN", "DIGITAL"
+              />
+              
+              {/* Second headline with exaggerated words */}
+              <AnimatedText
+                text={t('headline.part2')}
+                className=""
+                isRTL={isRTL}
+                staggerDelay={0.08}
+                exaggeratedIndices={[1, 8, 15]} // Words like "LIGHTNING-FAST", "EXPERIENCES", "EVOLVING"
+              />
+              
+              {/* Third headline with exaggerated words */}
+              <AnimatedText
+                text={t('headline.part3')}
+                className=""
+                isRTL={isRTL}
+                staggerDelay={0.08}
+                exaggeratedIndices={[0, 6, 11]} // Words like "BORN", "INNOVATION", "ORDINARY"
+              />
             </div>
           </div>
         </div>

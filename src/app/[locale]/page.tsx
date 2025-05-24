@@ -5,6 +5,7 @@ import HeroContact from '@/components/sections/HeroContact';
 import VideoSection from '@/components/sections/VideoSection';
 import AboutSection from '@/components/sections/AboutSection';
 import ServicesSection from '@/components/sections/ServicesSection';
+import ServicesGrid from '@/components/sections/ServicesGrid';
 import WhaleMessage from '@/components/sections/WhaleMessage';
 
 export async function generateStaticParams() {
@@ -28,6 +29,7 @@ export default async function Home({ params }: PageProps) {
       <AboutSection />
       <WhaleMessage />
       <ServicesSection />
+      <ServicesGrid />
       {/* Additional sections will go here */}
     </main>
   );

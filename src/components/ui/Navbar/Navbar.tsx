@@ -8,6 +8,7 @@ import { Spiral as Hamburger } from 'hamburger-react';
 import useNavStore from '@/lib/store/useNavStore';
 import LocaleSwitcher from '../LocaleSwitcher';
 import Container from '@/components/layout/Container';
+import AudioPlayer from '@/components/ui/AudioPlayer';
 
 const navItems = [
   { labelKey: 'home', path: '' },
@@ -39,20 +40,24 @@ const Navbar: FC = () => {
               priority
             />
           </Link>
-          {/* Grouped navigation, switcher, and hamburger */}
+          {/* Grouped navigation, visualizer, switcher, and hamburger */}
           <div className="flex items-center space-x-6 rtl:space-x-reverse text-white">
             <ul className="hidden md:flex items-center space-x-6 rtl:space-x-reverse">
               {navItems.map(({ labelKey, path }) => (
                 <li key={labelKey}>
                   <Link
                     href={`/${path}`}
-                    className={`text-white font-medium nav-hover-line ${locale === 'ar' ? 'font-arabic' : 'font-sans'}`}
+                    className={`text-white font-medium nav-hover-line ${locale === 'ar' ? 'font-medium' : 'font-sans'}`}
                   >
                     {t(labelKey)}
                   </Link>
                 </li>
               ))}
             </ul>
+            {/* Music Visualizer */}
+            <div className="hidden md:block">
+              <AudioPlayer />
+            </div>
             <LocaleSwitcher />
             <div className="p-2">
               <Hamburger
@@ -80,6 +85,10 @@ const Navbar: FC = () => {
                 {t(labelKey)}
               </Link>
             ))}
+            {/* Mobile Music Visualizer */}
+            <div className="px-3 py-2">
+              <AudioPlayer />
+            </div>
           </div>
         </div>
       )}
