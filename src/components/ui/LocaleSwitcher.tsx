@@ -2,16 +2,15 @@
 import { FC } from 'react';
 import { usePathname, useRouter } from '@/i18n/navigation';
 import { useParams } from 'next/navigation';
-
-const LOCALES = ['en', 'ar'] as const; // used for type inference of locales
+import { locales } from '@/lib/i18n/config';
 
 const LocaleSwitcher: FC = () => {
   const router = useRouter();
   const pathname = usePathname();
   const params = useParams();
-  const currentLocale = params.locale as typeof LOCALES[number] || 'en';
+  const currentLocale = params.locale as typeof locales[number] || 'en';
 
-  const switchLocale = (targetLocale: typeof LOCALES[number]) => {
+  const switchLocale = (targetLocale: typeof locales[number]) => {
     router.push(pathname, { locale: targetLocale });
   };
 

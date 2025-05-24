@@ -1,6 +1,4 @@
 import { locales as availableLocales } from '@/lib/i18n/config';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
-import type { Locale } from '@/lib/i18n/config';
 import HeroContact from '@/components/sections/HeroContact';
 import VideoSection from '@/components/sections/VideoSection';
 import AboutSection from '@/components/sections/AboutSection';
@@ -12,16 +10,7 @@ export async function generateStaticParams() {
   return availableLocales.map((locale) => ({ locale }));
 }
 
-interface PageProps {
-  params: { locale: Locale };
-}
-
-export default async function Home({ params }: PageProps) {
-  const locale = params.locale;
-  // enable static render
-  setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: 'home' });
-  
+export default function Home() {
   return (
     <main>
       <HeroContact />
@@ -30,7 +19,6 @@ export default async function Home({ params }: PageProps) {
       <WhaleMessage />
       <ServicesSection />
       <ServicesGrid />
-      {/* Additional sections will go here */}
     </main>
   );
 } 

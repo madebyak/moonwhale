@@ -1,15 +1,4 @@
-import { useTranslations } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
-import { setRequestLocale } from 'next-intl/server';
-
-type PageProps = {
-  params: { locale: string };
-};
-
-export default async function ServicesPage({ params }: PageProps) {
-  const locale = params.locale;
-  setRequestLocale(locale);
-  
+export default function ServicesPage() {
   return (
     <div className="container mx-auto py-16 px-4">
       <h1 className="text-4xl font-bold mb-8 text-center">Our Services</h1>

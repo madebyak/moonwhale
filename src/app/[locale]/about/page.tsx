@@ -1,44 +1,29 @@
-import { useTranslations } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
-import { setRequestLocale } from 'next-intl/server';
-
-type PageProps = {
-  params: { locale: string };
-};
-
-export default async function AboutPage({ params }: PageProps) {
-  const locale = params.locale;
-  setRequestLocale(locale);
-  
+export default function About() {
   return (
-    <div className="container mx-auto py-16 px-4">
-      <h1 className="text-4xl font-bold mb-8 text-center">About MoonWhale</h1>
-      
-      <div className="max-w-3xl mx-auto">
-        <p className="mb-6 text-lg">
-          MoonWhale is a leading technology company specializing in innovative solutions for businesses of all sizes. 
-          Founded in 2015, we've been at the forefront of digital transformation, helping our clients navigate the 
-          ever-changing technological landscape.
-        </p>
-        
-        <h2 className="text-2xl font-semibold mb-4 mt-8">Our Mission</h2>
-        <p className="mb-6">
-          To empower businesses through cutting-edge technology solutions that drive growth, efficiency, and innovation.
-          We believe in creating meaningful partnerships with our clients to understand their unique challenges and deliver
-          tailored solutions that exceed expectations.
-        </p>
-        
-        <h2 className="text-2xl font-semibold mb-4 mt-8">Our Team</h2>
-        <p className="mb-6">
-          Our diverse team of experts brings together a wealth of knowledge and experience from various fields. From software
-          development to design, project management to strategy, we have the expertise to tackle any challenge.
-        </p>
-        
-        <div className="mt-12 p-6 bg-gray-100 rounded-lg">
-          <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
-          <p>
-            Ready to start your next project with us? Reach out today and let's create something amazing together.
+    <div className="min-h-screen bg-black text-white py-16">
+      <div className="container mx-auto px-4">
+        <h1 className="text-4xl font-bold mb-8">About Us</h1>
+        <div className="max-w-4xl">
+          <p className="text-lg mb-6">
+            We are a digital agency focused on creating exceptional web experiences.
           </p>
+          <p className="text-lg mb-6">
+            Our team combines creativity with technical expertise to deliver solutions that drive results.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+            <div>
+              <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
+              <p className="text-gray-300">
+                To create digital experiences that don&apos;t just keep up with the world but push it forward.
+              </p>
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold mb-4">Our Vision</h2>
+              <p className="text-gray-300">
+                A future where technology is accessible, impactful, and intuitively human.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

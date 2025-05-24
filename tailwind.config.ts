@@ -1,6 +1,5 @@
 // tailwind.config.ts
 import type { Config } from 'tailwindcss'
-import logical from 'tailwindcss-logical'
 
 const config: Config = {
   content: [
@@ -8,7 +7,7 @@ const config: Config = {
     './src/components/**/*.{ts,tsx}',
     './stories/**/*.{ts,tsx}'
   ],
-  plugins: [logical],
+  plugins: [],
   theme: {
     extend: {
       colors: {

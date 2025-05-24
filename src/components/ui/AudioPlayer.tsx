@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 
 interface AudioPlayerProps {
   className?: string;
@@ -18,91 +18,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ className = '' }) => {
   const dataArrayRef = useRef<Uint8Array | null>(null);
   const animationIdRef = useRef<number | null>(null);
 
-  // Initialize audio on mount
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    // Try to play immediately (will work because it's muted)
-    audio.play().catch((error) => {
-      console.log('Initial autoplay failed:', error.message);
-    });
-
-    // Setup event listeners
-    const handleLoadedData = () => {
-      console.log('Audio loaded');
-      setIsLoaded(true);
-    };
-
-    const handleCanPlay = () => {
-      console.log('Audio can play');
-      setIsLoaded(true);
-    };
-
-    const handleError = (e: Event) => {
-      console.error('Audio error:', e);
-    };
-
-    audio.addEventListener('loadeddata', handleLoadedData);
-    audio.addEventListener('canplaythrough', handleCanPlay);
-    audio.addEventListener('error', handleError);
-
-    return () => {
-      audio.removeEventListener('loadeddata', handleLoadedData);
-      audio.removeEventListener('canplaythrough', handleCanPlay);
-      audio.removeEventListener('error', handleError);
-    };
-  }, []);
-
-  // Initialize Web Audio API for visualization
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio || !isLoaded) return;
-
-    try {
-      // Create audio context and analyser
-      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
-      const analyser = audioContext.createAnalyser();
-      const source = audioContext.createMediaElementSource(audio);
-      
-      // Configure analyser
-      analyser.fftSize = 128; // Better frequency resolution
-      analyser.smoothingTimeConstant = 0.8;
-      
-      // Connect audio nodes
-      source.connect(analyser);
-      analyser.connect(audioContext.destination);
-      
-      // Store references
-      audioContextRef.current = audioContext;
-      analyserRef.current = analyser;
-      dataArrayRef.current = new Uint8Array(analyser.frequencyBinCount);
-      
-      // Start visualization
-      startVisualization();
-      
-      console.log('Web Audio API initialized');
-    } catch (error) {
-      console.error('Failed to initialize Web Audio API:', error);
-    }
-
-    return () => {
-      stopVisualization();
-      if (audioContextRef.current && audioContextRef.current.state !== 'closed') {
-        audioContextRef.current.close();
-      }
-    };
-  }, [isLoaded]);
-
-  // Restart visualization when mute state changes
-  useEffect(() => {
-    if (isLoaded && analyserRef.current) {
-      stopVisualization();
-      startVisualization();
-    }
-  }, [isMuted, isLoaded]);
-
-  const startVisualization = () => {
+  const startVisualization = useCallback(() => {
     const draw = () => {
       const canvas = canvasRef.current;
       const analyser = analyserRef.current;
@@ -153,7 +69,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ className = '' }) => {
     };
     
     draw();
-  };
+  }, [isMuted]);
 
   const stopVisualization = () => {
     if (animationIdRef.current) {
@@ -161,6 +77,90 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ className = '' }) => {
       animationIdRef.current = null;
     }
   };
+
+  // Initialize audio on mount
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    // Try to play immediately (will work because it's muted)
+    audio.play().catch((error) => {
+      console.log('Initial autoplay failed:', error.message);
+    });
+
+    // Setup event listeners
+    const handleLoadedData = () => {
+      console.log('Audio loaded');
+      setIsLoaded(true);
+    };
+
+    const handleCanPlay = () => {
+      console.log('Audio can play');
+      setIsLoaded(true);
+    };
+
+    const handleError = (e: Event) => {
+      console.error('Audio error:', e);
+    };
+
+    audio.addEventListener('loadeddata', handleLoadedData);
+    audio.addEventListener('canplaythrough', handleCanPlay);
+    audio.addEventListener('error', handleError);
+
+    return () => {
+      audio.removeEventListener('loadeddata', handleLoadedData);
+      audio.removeEventListener('canplaythrough', handleCanPlay);
+      audio.removeEventListener('error', handleError);
+    };
+  }, []);
+
+  // Initialize Web Audio API for visualization
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio || !isLoaded) return;
+
+    try {
+      // Create audio context and analyser
+      const audioContext = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
+      const analyser = audioContext.createAnalyser();
+      const source = audioContext.createMediaElementSource(audio);
+      
+      // Configure analyser
+      analyser.fftSize = 128; // Better frequency resolution
+      analyser.smoothingTimeConstant = 0.8;
+      
+      // Connect audio nodes
+      source.connect(analyser);
+      analyser.connect(audioContext.destination);
+      
+      // Store references
+      audioContextRef.current = audioContext;
+      analyserRef.current = analyser;
+      dataArrayRef.current = new Uint8Array(analyser.frequencyBinCount);
+      
+      // Start visualization
+      startVisualization();
+      
+      console.log('Web Audio API initialized');
+    } catch (error) {
+      console.error('Failed to initialize Web Audio API:', error);
+    }
+
+    return () => {
+      stopVisualization();
+      if (audioContextRef.current && audioContextRef.current.state !== 'closed') {
+        audioContextRef.current.close();
+      }
+    };
+  }, [isLoaded, startVisualization]);
+
+  // Restart visualization when mute state changes
+  useEffect(() => {
+    if (isLoaded && analyserRef.current) {
+      stopVisualization();
+      startVisualization();
+    }
+  }, [isMuted, isLoaded, startVisualization]);
 
   const toggleMute = () => {
     const audio = audioRef.current;
