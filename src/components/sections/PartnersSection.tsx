@@ -91,6 +91,22 @@ const PartnersSection: React.FC = () => {
     }
   ];
 
+  // Scrolling logos data - for the horizontal marquee
+  const scrollingLogos = [
+    { name: 'Next.js', logo: '/next.svg', altText: 'Next.js Logo' },
+    { name: 'MoonWhale Web', logo: '/MW_logo_web.svg', altText: 'MoonWhale Web Logo' },
+    { name: 'MoonWhale Symbol', logo: '/mw-symbol.svg', altText: 'MoonWhale Symbol' },
+    { name: 'Next.js', logo: '/next.svg', altText: 'Next.js Logo' },
+    { name: 'MoonWhale Web', logo: '/MW_logo_web.svg', altText: 'MoonWhale Web Logo' },
+    { name: 'MoonWhale Symbol', logo: '/mw-symbol.svg', altText: 'MoonWhale Symbol' },
+    { name: 'Next.js', logo: '/next.svg', altText: 'Next.js Logo' },
+    { name: 'MoonWhale Web', logo: '/MW_logo_web.svg', altText: 'MoonWhale Web Logo' },
+    { name: 'MoonWhale Symbol', logo: '/mw-symbol.svg', altText: 'MoonWhale Symbol' },
+    { name: 'Next.js', logo: '/next.svg', altText: 'Next.js Logo' },
+    { name: 'MoonWhale Web', logo: '/MW_logo_web.svg', altText: 'MoonWhale Web Logo' },
+    { name: 'MoonWhale Symbol', logo: '/mw-symbol.svg', altText: 'MoonWhale Symbol' }
+  ];
+
   // easeInOutCirc timing for consistent animations
   const easeInOutCirc = [0.785, 0.135, 0.15, 0.86];
   // easeInOutQuint for hover effect
@@ -99,7 +115,7 @@ const PartnersSection: React.FC = () => {
   return (
     <section className="py-16 bg-black text-white" ref={sectionRef}>
       <Container>
-        <div className="space-y-12">
+        <div className="space-y-4">
           {/* Section Label */}
           <motion.div 
             className={`${isRTL ? 'font-arabic' : 'font-mono'} text-sm text-black bg-white px-4 py-2 font-medium uppercase inline-block`}
@@ -114,10 +130,10 @@ const PartnersSection: React.FC = () => {
           </motion.div>
           
           {/* Headline and Subline Row */}
-          <div className={`flex flex-col lg:flex-row ${isRTL ? 'lg:flex-row-reverse' : ''} gap-2 lg:gap-16 items-start`}>
-            {/* Main Headline - Left side (or right for RTL) */}
+          <div className="space-y-6">
+            {/* Main Headline */}
             <motion.div 
-              className={`${isRTL ? 'font-arabic' : 'font-sans'} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase leading-loose flex-1`}
+              className={`${isRTL ? 'font-arabic' : 'font-sans'} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase leading-tight`}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{
@@ -129,9 +145,9 @@ const PartnersSection: React.FC = () => {
               {t('headline')}
             </motion.div>
 
-            {/* Subline - Right side (or left for RTL) */}
+            {/* Subline */}
             <motion.div 
-              className={`${isRTL ? 'font-arabic text-right' : 'font-mono text-left'} text-lg md:text-xl leading-relaxed max-w-md lg:max-w-sm xl:max-w-md flex-shrink-0`}
+              className={`${isRTL ? 'font-arabic text-right' : 'font-mono text-left'} text-lg md:text-xl leading-relaxed max-w-lg`}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{
@@ -145,7 +161,7 @@ const PartnersSection: React.FC = () => {
           </div>
 
           {/* Partners Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12 mt-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12 mt-32">
             {partners.map((partner, index) => (
               <motion.div
                 key={partner.id}
@@ -189,6 +205,111 @@ const PartnersSection: React.FC = () => {
                 </div>
               </motion.div>
             ))}
+          </div>
+
+          {/* Second Subsection: Horizontal Scrolling Logos */}
+          <div className="mt-32 space-y-4">
+            {/* Section Label */}
+            <motion.div 
+              className={`${isRTL ? 'font-arabic' : 'font-mono'} text-sm text-black bg-white px-4 py-2 font-medium uppercase inline-block`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{
+                duration: 0.6,
+                delay: 1.8,
+                ease: easeInOutCirc
+              }}
+            >
+              {t('label')}
+            </motion.div>
+            
+            {/* Headline and Subline */}
+            <div className="space-y-6">
+              {/* Main Headline */}
+              <motion.div 
+                className={`${isRTL ? 'font-arabic' : 'font-sans'} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase leading-tight`}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{
+                  duration: 0.8,
+                  delay: 2.0,
+                  ease: easeInOutCirc
+                }}
+              >
+                {t('headline')}
+              </motion.div>
+
+              {/* Subline */}
+              <motion.div 
+                className={`${isRTL ? 'font-arabic text-right' : 'font-mono text-left'} text-lg md:text-xl leading-relaxed max-w-lg`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{
+                  duration: 0.6,
+                  delay: 2.2,
+                  ease: easeInOutCirc
+                }}
+              >
+                {t('subline')}
+              </motion.div>
+            </div>
+
+            {/* Horizontal Scrolling Logos */}
+            <motion.div 
+              className="relative overflow-hidden mt-16"
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{
+                duration: 0.6,
+                delay: 2.4,
+                ease: easeInOutCirc
+              }}
+            >
+              {/* Scrolling Container */}
+              <motion.div
+                className="flex items-center gap-16 whitespace-nowrap"
+                animate={{
+                  x: [0, -100 * scrollingLogos.length / 2], // Move by half the logos width
+                }}
+                transition={{
+                  x: {
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    duration: 20, // 20 seconds for full cycle
+                    ease: "linear",
+                  },
+                }}
+              >
+                {/* Render logos multiple times for seamless loop */}
+                {[...Array(3)].map((_, setIndex) => (
+                  <React.Fragment key={setIndex}>
+                    {scrollingLogos.map((logo, index) => (
+                      <motion.div
+                        key={`${setIndex}-${index}`}
+                        className="flex-shrink-0"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{
+                          duration: 0.3,
+                          ease: easeInOutQuint
+                        }}
+                      >
+                        <div className="w-24 h-16 flex items-center justify-center">
+                          <div className="relative w-full h-full flex items-center justify-center">
+                            <Image
+                              src={logo.logo}
+                              alt={logo.altText}
+                              fill
+                              className="object-contain filter brightness-0 invert"
+                              sizes="96px"
+                            />
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </React.Fragment>
+                ))}
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </Container>

@@ -15,7 +15,7 @@ const HeroContact: React.FC = () => {
         <div className="flex flex-col md:flex-row md:rtl:flex-row-reverse">
           {/* Headline container (70%) */}
           <div className="w-full md:w-[70%] mb-10 md:mb-0">
-            <h1 className={`text-3xl sm:text-4xl md:text-5xl font-sans font-bold leading-tight ${isRTL ? 'font-arabic' : ''}`}>
+            <h1 className={`text-3xl sm:text-4xl md:text-7xl font-sans font-bold leading-tight ${isRTL ? 'font-arabic' : ''}`}>
               <div>{t('headline.line1')}</div>
               <div className="mt-2">{t('headline.line2')}</div>
               <div className="mt-2">{t('headline.line3')}</div>
