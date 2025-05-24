@@ -159,6 +159,11 @@
     "whaleMessage": {
       "line1": "From the Deep Blue to Deep Space",
       "line2": "Building Brands that Orbit."
+    },
+    "partners": {
+      "label": "OUR PARTNERS",
+      "headline": "Power-Stack Partners",
+      "subline": "We are certified expertise with the platforms that fuel every MoonWhale build."
     }
   }
 } 
