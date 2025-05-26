@@ -14,9 +14,16 @@
   }
 }
 
+html {
+  /* Disable default smooth scrolling to let Lenis handle it */
+  scroll-behavior: auto;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
+  /* Prevent horizontal scrollbar */
+  overflow-x: hidden;
 }
 
 /* Directional hover line animation */

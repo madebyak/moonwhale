@@ -20,9 +20,9 @@
       "subtitle": "We build innovative products and experiences that power meaningful connections between brands and people",
       "cta": "Get Started",
       "headline": {
-        "line1": "SHAPING THE FUTURE OF IRAQ",
-        "line2": "WITH THE POWER OF AI",
-        "line3": "AND DIGITAL SOLUTIONS"
+        "line1": "Shaping the Future of Iraq",
+        "line2": "With the Power of AI",
+        "line3": "And Digital Solutions"
       },
       "contact": {
         "office": "OFFICE:",
@@ -164,6 +164,23 @@
       "label": "OUR PARTNERS",
       "headline": "Power-Stack Partners",
       "subline": "We are certified expertise with the platforms that fuel every MoonWhale build."
+    },
+    "clients": {
+      "label": "OUR CLIENTS",
+      "headline": "Brands We've Propelled",
+      "subline": "Start-ups and market leaders alike trust us to launch their next big leap."
+    }
+  },
+  "about": {
+    "headline": {
+      "word1": "Humans",
+      "word2": "Building", 
+      "word3": "Tomorrow"
+    },
+    "subline": "We're a team of designers, engineers, and strategists turning bold ideas into digital products that make everyday life simpler, smarter, and more connected.",
+    "body": {
+      "paragraph1": "Progress demands collaboration. By uniting product thinkers, code artisans, and AI problem-solvers under one roof, we convert complexity into clear, user-first solutions.",
+      "paragraph2": "From fintech and retail to healthcare, logistics, and beyond, we develop tailored solutions with our partners, moving strategies from whiteboard to real-world impact. Wherever technology needs to go next, we find a way to make it happen."
     }
   }
 } 
