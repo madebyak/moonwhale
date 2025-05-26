@@ -30,7 +30,7 @@ export default function SmoothScrolling({ children }: SmoothScrollingProps) {
 
     // Make Lenis globally accessible
     if (typeof window !== 'undefined') {
-      (window as any).lenis = lenis;
+      (window as typeof window & { lenis: Lenis }).lenis = lenis;
     }
 
     // Integrate with GSAP ScrollTrigger (wrapped in try-catch)

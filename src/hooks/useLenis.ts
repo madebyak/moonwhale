@@ -1,24 +1,25 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import type Lenis from 'lenis';
 
 declare global {
   interface Window {
-    lenis?: any;
+    lenis?: Lenis;
   }
 }
 
 export function useLenis() {
-  const lenisRef = useRef<any>(null);
+  const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
     // Get the global Lenis instance
     if (typeof window !== 'undefined') {
-      lenisRef.current = window.lenis;
+      lenisRef.current = window.lenis || null;
     }
   }, []);
 
-  const scrollTo = (target: string | number, options?: any) => {
+  const scrollTo = (target: string | number, options?: { duration?: number; offset?: number; immediate?: boolean }) => {
     if (lenisRef.current) {
       lenisRef.current.scrollTo(target, options);
     }

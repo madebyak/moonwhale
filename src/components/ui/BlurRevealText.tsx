@@ -10,12 +10,12 @@ if (typeof window !== 'undefined') {
 }
 
 // Debounce utility function
-const debounce = (func: Function, delay: number) => {
+const debounce = <T extends unknown[]>(func: (...args: T) => void, delay: number) => {
   let timerId: NodeJS.Timeout;
-  return (...args: any[]) => {
+  return (...args: T) => {
     clearTimeout(timerId);
     timerId = setTimeout(() => {
-      func.apply(this, args);
+      func(...args);
     }, delay);
   };
 };
@@ -37,7 +37,8 @@ class TextSplitter {
     this.textElement = textElement;
     this.onResize = typeof resizeCallback === 'function' ? resizeCallback : null;
     
-    const splitOptions = splitTypeTypes ? { types: splitTypeTypes as any } : {};
+    const splitOptions = splitTypeTypes ? { types: splitTypeTypes } : {};
+    // @ts-expect-error - SplitType types issue with string literal
     this.splitText = new SplitType(this.textElement, splitOptions);
 
     if (this.onResize) {
@@ -146,20 +147,21 @@ const BlurRevealText: React.FC<BlurRevealTextProps> = ({
   const effectRef = useRef<BlurScrollEffect | null>(null);
 
   useEffect(() => {
-    if (!textRef.current) return;
+    const currentTextRef = textRef.current;
+    if (!currentTextRef) return;
 
     try {
       // Clean up existing effect
       if (effectRef.current) {
         ScrollTrigger.getAll().forEach(trigger => {
-          if (trigger.trigger === textRef.current) {
+          if (trigger.trigger === currentTextRef) {
             trigger.kill();
           }
         });
       }
 
       // Create new effect
-      effectRef.current = new BlurScrollEffect(textRef.current);
+      effectRef.current = new BlurScrollEffect(currentTextRef);
       
       console.log('BlurRevealText effect initialized');
     } catch (error) {
@@ -168,9 +170,9 @@ const BlurRevealText: React.FC<BlurRevealTextProps> = ({
 
     return () => {
       // Cleanup on unmount
-      if (textRef.current) {
+      if (currentTextRef) {
         ScrollTrigger.getAll().forEach(trigger => {
-          if (trigger.trigger === textRef.current) {
+          if (trigger.trigger === currentTextRef) {
             trigger.kill();
           }
         });

@@ -1,4 +1,4 @@
-import { motion, Transition, useScroll, useTransform, MotionValue } from "framer-motion";
+import { motion, Transition, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState, useMemo } from "react";
 
 type BlurTextProps = {
@@ -67,8 +67,6 @@ const BlurText: React.FC<BlurTextProps> = ({
 
   // Scroll-based animation setup - compatible with Lenis smooth scrolling
   const { scrollY } = useScroll();
-  const scrollYTransform = useTransform(scrollY, [scrollStart, scrollEnd], scrollYRange);
-  const scrollBlurTransform = useTransform(scrollY, [scrollStart, scrollEnd], scrollBlurRange);
 
   // Ease-in-out quart function for scroll animation
   const easeInOutQuart = (t: number): number => {
@@ -143,7 +141,7 @@ const BlurText: React.FC<BlurTextProps> = ({
           times,
           delay: (index * delay) / 1000,
         };
-        (spanTransition as any).ease = easing;
+        (spanTransition as Transition & { ease: (t: number) => number }).ease = easing;
 
         const handleAnimationComplete = () => {
           if (index === elements.length - 1) {
